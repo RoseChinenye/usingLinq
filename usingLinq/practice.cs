@@ -1,26 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+namespace usingLinq;
 
-namespace usingLinq
+public static class intExtensions
 {
-    public class practice
+    public static bool IsGreaterThan(this int i, int value)
     {
-        public static void LambdaExpressionSyntax()
-        {
-
-            List<int> list = new List<int>();
-            list.AddRange(new int[] { 20, 1, 4, 8, 9, 44 });
-
-            var ListOfEvenNumbers = list.FindAll(x => (x % 2) == 0);
-            foreach (var s in ListOfEvenNumbers)
-            {
-                Console.WriteLine(s);
-            }
-            Console.WriteLine();
-            Console.ReadKey();
-        }
+        return i > value;
     }
 }
+
+public class anonymousTypes
+{
+    public void getAnonymousTypes() 
+    {
+        /* var purchasedItem = new
+         {
+             books = "English",
+             chapters = new {chapter1 = "pg1", chapter2 = "pg2", chapter3 = "pg3" }
+         };*/
+
+        string[] names = { "Bill", "Steve", "James", "Mohan" };
+
+        var newList = from name in names
+                      where name.Contains('a')
+                      select name;
+    }
+}
+
+    
